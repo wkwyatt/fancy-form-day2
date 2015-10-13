@@ -1,0 +1,66 @@
+body {
+}
+
+#gallery-wrapper {
+	text-align: center;
+	padding: 10px;
+}
+
+#gallery-wrapper h1 {
+	font: 75px 'Asset', serif;	
+	text-align: center;
+	color:blue;
+}
+
+.image {
+	display:inline-block;
+	width:30%;
+	border-radius: 15px;
+	margin: 5px;
+	float:left;
+}
+
+.image img {
+	position: relative;
+    /*float: left;*/
+    width:  100%;
+    height: 300px;
+}
+.image .one {
+	float:left;
+}
+
+.portrait img {
+	height:640px;
+}
+
+.wide-image {
+	display: block;
+	margin-top: 10px;
+}
+
+.wide-image img {
+	width: 100%;
+	height: 300px;
+}
+.landscape {
+
+}
+
+.extra-stuff {
+	line-height: 167px;
+	vertical-align: middle;
+	display:inline-block;
+	width:30%;
+	height: 336px;
+	border-radius: 15px;
+	background-color: #f44;
+	float:left;
+	color:white;
+	font-size:28px;
+}
+.caption {
+	background-color: #f44;
+	color:white;
+	font-size:28px;
+}
