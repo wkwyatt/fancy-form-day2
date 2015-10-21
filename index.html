@@ -3,40 +3,74 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
+	<title>Sign Up Form</title>
 	<link rel="stylesheet" type="text/css" href="http://meyerweb.com/eric/tools/css/reset/reset.css">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	
 </head>
 <body>
 	<div class="form-wrapper">
-		<h1>Sign Up Now!  <span>Sign up and tell us what you think of our site!</span></h1>
-		
-		<h2 class="section"><span>1</span>First Name & Address</h2>
-		<div class="inner-wrap">	
-			<label>Your Full Name <input type="text" name="fullName" placeholder=""></label>
-			<label>Address <textarea name="address"></textarea></label>
-		</div>
-		
-		<h2 class="section"><span>2</span>Email & Phone</h2>
-		<div class="inner-wrap">	
-			<label>Email Address <input type="email" name="email" value=""></label>
-			<label>Phone Number <input type-"text" name="phoneNumber"></label>
-		</div>
-		
-		<h2 class="section"><span>3</span>Passwords</h2>
-		<div class="inner-wrap">
-			<label>Password <input type="password" name="password" value=""></label>
-			<label>Confirm Password <input type="password" name="confirmPassword" value=""</label>
-		</div>
-		
-		<div class="button-section">
-			<input type="submit" value="Sign Me Up!">
-			<span class="privacy-policy right">
-				<input type="checkbox" name="privacy" value="">I agree tot he Terms and Policies
-			</span>
-		</div>
+		<form name="signUpForm" onsubmit="return (validateForm());">
 
+			<div id="name-wrapper" class="form-group">
+				<h1>Sign Up Now!  <span>Sign up and tell us what you think of our site!</span></h1>
+				
+				<h2 class="section"><span>1</span>First Name & Address</h2>
+				<div class="inner-wrap">	
+					<label class="control-label">Your Full Name <input class="form-control" type="text" name="fullName" placeholder=""></label>
+					<label class="control-label">Address <textarea class="form-control" name="address"></textarea></label>
+				</div>
+					
+				<!-- </div> -->
+				<h2 class="section"><span>2</span>Email & Phone</h2>
+				<div class="inner-wrap">	
+					<label>Email Address <input class="form-control" type="email" name="email" value=""></label>
+					<label>Phone Number <input class="form-control" type-"text" name="phoneNumber"></label>
+				</div>
+				
+				<h2 class="section"><span>3</span>Passwords</h2>
+				<div class="inner-wrap">
+					<label>Password <input class="form-control" type="password" name="password" value=""></label>
+					<label>Confirm Password <input class="form-control" type="password" name="confirmPassword" value=""</label>
+				</div>
+				
+				<div class="button-section">
+					<input type="submit" value="Sign Me Up!">
+					<span class="privacy-policy right">
+						<input type="checkbox" name="privacy" value="">I agree tot he Terms and Policies
+					</span>
+				</div>
+			</div>
+		</form>
 	</div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript">
+	
+	function validateForm() {
+		// if(signUpForm.fullName.value == "") {
+		if(signUpForm.fullName.value.length < 3) {
+			signUpForm.fullName.focus();
+			document.getElementById('name-wrapper').className = 'form-group has-error';
+			alert("Enter a name");
+			return false;
+		} else if(signUpForm.address.value.length < 10) {
+			signUpForm.address.focus();
+			document.getElementById('name-wrapper').className = 'form-group has-error';
+			alert("Enter an address");
+		} else if(signUpForm.email.value.length < 5) {
+			signUpForm.email.focus();
+			document.getElementById('name-wrapper').className = 'form-group has-error';
+			alert("Enter an address");
+		} else if(signUpForm.text.value.length < 10) {
+			signUpForm.text.focus();
+			document.getElementById('name-wrapper').className = 'form-group has-error';
+			alert("Enter an address");
+		}
+
+
+	}
+</script>
 </html>
