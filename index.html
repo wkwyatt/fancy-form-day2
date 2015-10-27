@@ -6,51 +6,102 @@
 	<title>Sign Up Form</title>
 	<link rel="stylesheet" type="text/css" href="http://meyerweb.com/eric/tools/css/reset/reset.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style2.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
 	
 </head>
 <body>
-	<div class="form-wrapper">
-		<form name="signUpForm" onsubmit="return (validateForm());">
+	<div id="tabs">
+		<ul>
+			<li><a href="#signup-1">Sign Up Form 1</a></li>
+			<li><a href="#signup-2">Sign Up Form 2</a></li>
+		</ul>
+		<ul>
+			<li>
+				<div id="signup-1" class="form-wrapper">
+					<form id="signup-form" name="signUpForm" onsubmit="return (validateForm());">
 
-			<div id="name-wrapper" class="form-group">
-				<h1>Sign Up Now!  <span>Sign up and tell us what you think of our site!</span></h1>
-				
-				<h2 class="section"><span>1</span>First Name & Address</h2>
-				<div class="inner-wrap">	
-					<label class="control-label">Your Full Name <input class="form-control" type="text" name="fullName" placeholder=""></label>
-					<label class="control-label">Address <textarea class="form-control" name="address"></textarea></label>
+						<div id="name-wrapper" class="form-group">
+							<h1>Sign Up Now!  <span>Sign up and tell us what you think of our site!</span></h1>
+							
+							<h2 class="section"><span>1</span>First Name & Address</h2>
+							<div class="inner-wrap">	
+								<label class="control-label">Your Full Name <input id="name" class="form-control" type="text" name="fullName" placeholder=""></label>
+								<label class="control-label">Address <textarea id="address" class="form-control" name="address"></textarea></label>
+							</div>
+
+							<h2 class="section"><span>1</span>Age</h2>
+							<div class="inner-wrap">	
+								<label class="control-label">Birthday<input id="dob" class="form-control" type="text" name="dob"></label>
+								<label class="control-label">Age<input id="age" value="30" class="form-control" name="age"></label>
+							</div>
+								
+							<!-- </div> -->
+							<h2 class="section"><span>2</span>Email & Phone</h2>
+							<div class="inner-wrap">	
+								<label>Email Address <input id="email" class="form-control" type="email" name="email" value=""></label>
+								<label>Phone Number <input id="phone" class="form-control" type-"text" name="phoneNumber"></label>
+							</div>
+							
+							<h2 class="section"><span>3</span>Passwords</h2>
+							<div class="inner-wrap">
+								<label>Password <input id="password" class="form-control" type="password" name="password" value=""></label>
+								<label>Confirm Password <input id="confirm-pass" class="form-control" type="password" name="confirmPassword" value=""</label>
+								<label class="control-label">Favorite Tech Skills<input type="text" id="techs" name="techs"></label>
+								
+							</div>
+							
+							<div class="button-section">
+								<button type="submit" value="Sign Me Up!">Sign Me Up!</button>
+								<span class="privacy-policy right">
+									<input type="checkbox" name="privacy" value="">I agree tot he Terms and Policies
+								</span>
+							</div>
+						</div>
+					</form>
 				</div>
-					
-				<!-- </div> -->
-				<h2 class="section"><span>2</span>Email & Phone</h2>
-				<div class="inner-wrap">	
-					<label>Email Address <input class="form-control" type="email" name="email" value=""></label>
-					<label>Phone Number <input class="form-control" type-"text" name="phoneNumber"></label>
+			</li>
+			<li>
+				<div id="signup-2" class="form-wrapper">
+					<fieldset>
+						<legend><span class="number">1</span> Candidate Info</legend>
+						<input type="text" name="name" value="" placeholder="Your Name">
+						<input type="email" name="email" value="" placeholder="Your email">
+						<textarea name="about" placeholder="Tell us about yourself..."></textarea>
+
+						<label>Interest:</label>
+						<select name="interests" >
+							<option value="programming">programming</option>
+							<option value="basketball">basketball</option>
+							<option value="fishing">fishing</option>
+							<option value="sleeping">sleeping</option>
+							<option value="poker">poker</option>
+							<option value="eating">eating</option>
+							<option value="drinking">drinking</option>
+							<option value="creating">creating</option>
+						</select>
+					</fieldset>
+						
+					<fieldset>
+						<legend><span class="number">2</span> Additional Info</legend>
+						<textarea name="school" placeholder="About your school..."></textarea>
+					</fieldset>
+					<input type="submit" value="Apply">
 				</div>
-				
-				<h2 class="section"><span>3</span>Passwords</h2>
-				<div class="inner-wrap">
-					<label>Password <input class="form-control" type="password" name="password" value=""></label>
-					<label>Confirm Password <input class="form-control" type="password" name="confirmPassword" value=""</label>
-				</div>
-				
-				<div class="button-section">
-					<input type="submit" value="Sign Me Up!">
-					<span class="privacy-policy right">
-						<input type="checkbox" name="privacy" value="">I agree tot he Terms and Policies
-					</span>
-				</div>
-			</div>
-		</form>
+			</li>
+		</ul>
 	</div>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript">
 	
 	function validateForm() {
 		// if(signUpForm.fullName.value == "") {
+		var lengthOfName = $('#name').val().length
 		if(signUpForm.fullName.value.length < 3) {
 			signUpForm.fullName.focus();
 			document.getElementById('name-wrapper').className = 'form-group has-error';
@@ -72,5 +123,34 @@
 
 
 	}
+
+	$('#signup-form').submit()
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+	$(function() {
+	    var availableTags = [
+	      "JavaScript",
+	      "PHP",
+	      "HTML5",
+	      "Ruby",
+	      "JQuery",
+	      "CSS3",
+	      "Linux"
+	    ];
+	    $( "#techs" ).autocomplete({
+	      source: availableTags
+	    });
+  	});
+
+
+$(function() {
+    var spinner = $( "#age" ).spinner();
+  });
+
+  $(function() {
+    $( "#dob" ).datepicker({dateFormat: "y/mm/dd"}).val();
+  });
+
 </script>
 </html>
